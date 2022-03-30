@@ -13,16 +13,17 @@ https://drive.google.com/file/d/1PQLZEsp6f7jjaQdMgw05FSovjmmYWWY7/view?usp=shari
 ### Server
 
 [x] Both the react app and the server are defined in the same package file. 
-[x] The server can be started with "npm run server" and will be available on port 3001. (You can also run the React app with "npm start") 
+[x] The server can be started with "npm run server" and will be available on port **3001**. 
+[x] (You can also run the React app with "npm start") 
 
 When running, the server makes the following REST API routes available:
 
-[ ] /api/register - takes email, password, and name, always returns success.
+[x] /api/register - takes email, password, and name, always returns success.
 [ ] /api/login - takes email and password, returns user name on success.
 [ ] /api/forgot - takes email, returns success if email was found.
 
-[ ] All of these routes work via POST method and expect application/json body containing parameters. 
-[ ] Response is also a JSON object with success set to true or false. 
+[x] All of these routes work via POST method and expect application/json body containing parameters. 
+[x] Response is also a JSON object with success set to true or false. 
 [ ] Login route also returns user name on success. 
 [ ] The /api/forgot route is meant to simulate password recovery flow, but will not send any emails. It will merely check if the user with provided email is registered and return success=false otherwise.
 
