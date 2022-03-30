@@ -12,17 +12,23 @@ https://drive.google.com/file/d/1PQLZEsp6f7jjaQdMgw05FSovjmmYWWY7/view?usp=shari
 
 ### Server
 
-Both the react app and the server are defined in the same package file. The server can be started with "npm run server" and will be available on port 3001. (You can also run the React app with "npm start") When running, the server makes the following REST API routes available:
+[x] Both the react app and the server are defined in the same package file. 
+[x] The server can be started with "npm run server" and will be available on port 3001. (You can also run the React app with "npm start") 
 
-/api/login - takes email and password, returns user name on success.
-/api/register - takes email, password, and name, always returns success.
-/api/forgot - takes email, returns success if email was found.
+When running, the server makes the following REST API routes available:
 
-All of these routes work via POST method and expect application/json body containing parameters. Response is also a JSON object with success set to true or false. Login route also returns user name on success. The /api/forgot route is meant to simulate password recovery flow, but will not send any emails. It will merely check if the user with provided email is registered and return success=false otherwise.
+[ ] /api/register - takes email, password, and name, always returns success.
+[ ] /api/login - takes email and password, returns user name on success.
+[ ] /api/forgot - takes email, returns success if email was found.
 
-A Dockerfile that builds a container capable of running the example code is provided. It is merely there for your convenience. Feel free to disregard it if it's not helpful.
+[ ] All of these routes work via POST method and expect application/json body containing parameters. 
+[ ] Response is also a JSON object with success set to true or false. 
+[ ] Login route also returns user name on success. 
+[ ] The /api/forgot route is meant to simulate password recovery flow, but will not send any emails. It will merely check if the user with provided email is registered and return success=false otherwise.
 
 ### Example
+
+A Dockerfile that builds a container capable of running the example code is provided. It is merely there for your convenience. Feel free to disregard it if it's not helpful.
 
 Below is a link to the archive with the code.
 https://drive.google.com/file/d/1X6OvKyRwt2RMRE-xjf_M6lGYkm3rf-Zc/view?usp=sharing
