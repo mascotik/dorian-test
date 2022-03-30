@@ -10,7 +10,8 @@ const sendRequest = async (url, body) => {
   console.log(data);
 }
 
-sendRequest('/api/register',{})
+const registerBody = { "email":"test@test.com","name":"Alex","password":"111"}
+sendRequest('/api/register',registerBody)
 
 function App() {
   return (
