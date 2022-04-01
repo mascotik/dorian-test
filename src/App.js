@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.scss';
-import LoginPage from './pages/LoginPage';
-import MainPage from './pages/MainPage';
+import LoginPage from './Pages/LoginPage';
+import MainPage from './Pages/MainPage';
 
 
 const App = () => {

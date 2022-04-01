@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Navigate } from "react-router-dom";
-import Login from "../components/authForm/AuthForm";
+import Login from "../Components/AuthForm/AuthForm";
 
 const LoginPage = ({ userData }) => {
 
@@ -10,6 +10,7 @@ const LoginPage = ({ userData }) => {
         <Fragment>
             {userData.user && <Navigate replace to="/" />}
             <header>
+                <h2>Authorization</h2>
                 <Login onSubmit={onSubmitHandler} />
             </header>
         </Fragment>

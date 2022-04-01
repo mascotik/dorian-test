@@ -18,8 +18,7 @@
     "react-scripts": "5.0.0",
     "sass": "^1.49.10",
     "sqlite": "^4.0.25",
-    "sqlite3": "^5.0.2",
-    "yup": "^0.32.11"
+    "sqlite3": "^5.0.2"
   },
   "scripts": {
     "server": "node server/server.js",
