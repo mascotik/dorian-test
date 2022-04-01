@@ -1,5 +1,7 @@
-import { Fragment } from "react"
-import { Navigate } from "react-router-dom"
+import { Fragment } from "react";
+import { Navigate } from "react-router-dom";
+
+import './MainPage.scss';
 
 const MainPage = ({ userData }) => {
 
@@ -7,7 +9,8 @@ const MainPage = ({ userData }) => {
         <Fragment>
             {!userData.user ? <Navigate replace to="/auth" /> : null}
             <header>
-                <h1>Main page {userData.user}</h1>
+                <h1>Main page</h1>
+                <h2>Hello {userData.user}</h2>
             </header>
         </Fragment>
     )
