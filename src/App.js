@@ -1,13 +1,23 @@
+import { createContext, useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import './App.css';
+import LoginPage from './pages/LoginPage';
+import MainPage from './pages/MainPage';
 
 
-function App() {
+
+const App = () => {
+
+  const [user, setUser] = useState(null)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        
-      </header>
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path='/' element={<MainPage userData={ { user } }/>} />
+          <Route path='/auth' element={<LoginPage userData={ { user, setUser } }/>} />
+        </Routes>
+      </BrowserRouter>
   );
 }
 
