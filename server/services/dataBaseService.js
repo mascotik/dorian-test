@@ -1,4 +1,5 @@
 // TODO: Track SQL errors
+// TODO: Send errors detail to client
 const sqlite3 = require('sqlite3');
 const bcrypt = require('bcrypt');
 const { open } = require('sqlite') // for realize ASYNC
@@ -15,7 +16,7 @@ class dataBaseService {
         )
     }
 
-    // TODO: Created for test async. Will be remove
+    // TODO: Created for test async request. Will be remove
     #sleep = (ms) => {
         return new Promise((resolve) => {
             setTimeout(resolve, ms);
@@ -35,18 +36,18 @@ class dataBaseService {
             return returnObj
         }
 
-        const { error } = await this.existUser({ email: email})
-        
+        const { error } = await this.existUser({ email: email })
+
         if (!error) {
-            returnObj.error = 'User already exist '+email
+            returnObj.error = 'User already exist ' + email
             return returnObj
         }
 
         const hash = bcrypt.hashSync(password, 6);
 
         try {
-            //TODO: Remove sleep after testing ASYNC 
-            await this.#sleep(2000)
+            //TODO: Remove sleep after testing ASYNC
+            await this.#sleep(3000)
             const res = await this.db.run(`INSERT INTO Users (name, email, password) VALUES ('${name}', '${email}', '${hash}');`);
             return returnObj
         } catch (error) {
@@ -72,15 +73,15 @@ class dataBaseService {
 
         try {
 
-            //TODO: Remove sleep after testing ASYNC 
-            await this.#sleep(2000)
+            //TODO: Remove sleep after testing ASYNC
+            await this.#sleep(3000)
 
             const res = await this.db.all(`SELECT name, password FROM Users WHERE email='${email}';`)
 
             if (!res || !res.length) {
-                returnObj.error = 'User not found '+email
+                returnObj.error = 'User not found ' + email
             } else if (!bcrypt.compareSync(password, res[0].password)) {
-                returnObj.error = 'Wrong password '+email
+                returnObj.error = 'Wrong password ' + email
             } else {
                 returnObj.data = res[0]
             }
@@ -106,13 +107,13 @@ class dataBaseService {
 
         try {
 
-            //TODO: Remove sleep after testing ASYNC 
-            await this.#sleep(2000)
+            //TODO: Remove sleep after testing ASYNC
+            await this.#sleep(3000)
 
             const res = await this.db.all(`SELECT id,email FROM Users WHERE email='${email}';`)
 
             if (!res || !res.length) {
-                returnObj.error = 'User not found '+email
+                returnObj.error = 'User not found ' + email
             } else {
                 returnObj.data = res[0]
             }
@@ -122,7 +123,7 @@ class dataBaseService {
         }
 
         return returnObj
-    }    
+    }
 }
 
 module.exports = dataBaseService

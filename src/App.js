@@ -1,26 +1,24 @@
-import './App.css';
-import Login from './components/Login/Login';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-const sendRequest = async (url, body) => {
-  const resp = await fetch(url, {
-    method: 'post',
-    body: JSON.stringify(body),
-    headers: { 'Content-Type': 'application/json' }
-  })
-  const data = await resp.json();
-  console.log(data);
-}
+import './App.scss';
+import LoginPage from './pages/LoginPage';
+import MainPage from './pages/MainPage';
 
-const registerBody = { "email": "test@test.com", "name": "Alex", "password": "111" }
-sendRequest('/api/register', registerBody)
 
-function App() {
+const App = () => {
+
+  const [user, setUser] = useState(null)
+
+  const setUserCallback = (value) => setUser(value);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <Login />
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path='/' element={<MainPage userData={{ user }} />} />
+        <Route path='/auth' element={<LoginPage userData={{ user, setUserCallback }} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

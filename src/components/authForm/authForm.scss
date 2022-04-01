@@ -1,0 +1,107 @@
+@import "../../sass/vars.scss";
+
+[class$="_form"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    margin: auto;
+
+    [id$="_form"] {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 500px;
+        height: 300px;
+    }
+
+    [id$="_fieldset"] {
+        display: flex;
+        flex-direction: column;
+        background: $primary_bg_color;
+        border: none;
+        border-radius: 20px;
+
+        [class$="_label"] {
+            position: relative;
+            width: auto;
+            height: 28px;
+            margin-left: 50px;
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 28px;
+            color: $primary_color_label;
+        }
+        [class$="_field"] {
+            position: relative;
+            width: 400px;
+            height: 36px;
+            margin-left: 50px;
+            background: $primary_bg_color_input;
+            border: 2px solid $primary_color_border;
+            box-sizing: border-box;
+            font-family: "Roboto";
+            font-style: normal;
+            font-size: 24px;
+        }
+        .error_message {
+            width: auto;
+            height: 19px;
+            margin: 11px auto 10px auto;
+            text-align: center;
+
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: $primary_color_error;
+        }
+
+        .submit_button {
+            width: 140px;
+            height: 45px;
+            margin: 10px auto auto auto;
+            background: $primary_bg_color_button;
+            border-radius: 10px;
+
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 28px;
+            text-align: center;
+            color: $primary_color_button;
+
+            &:disabled {
+                color: darken($color: $primary_color_button, $amount: 10);
+                background: darken($color: $primary_bg_color_button, $amount: 10);
+            }
+        }
+
+        .bottom_section {
+            display: flex;
+            justify-content: space-between;
+            margin: auto 50px 23px 50px;
+        }
+    }
+
+    .external_link {
+        width: auto;
+        height: 19px;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #000000;
+        text-decoration-line: underline;
+        &:hover {
+            cursor: pointer;
+            color: $primary_color_link;
+        }
+    }
+}
