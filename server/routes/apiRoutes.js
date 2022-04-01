@@ -2,7 +2,7 @@
 
 "use strict"
 const express = require("express");
-const dataBaseService = require("../services/dataBaseServise");
+const dataBaseService = require("../services/dataBaseService");
 const router = express.Router();
 
 const dbService = new dataBaseService();
@@ -14,7 +14,6 @@ router.use((req, res, next) => {
   console.log("Request", req.url, '@', Date.now())
   next()
 })
-
 
 // Takes email and password, returns user name on success.
 router.route('/login')
@@ -48,7 +47,6 @@ router.route('/login')
     res.json({ success: false });
   })
 
-
 // Takes email, password, and name, always returns success.
 router.route('/register')
   .post(async (req, res) => {
@@ -75,12 +73,11 @@ router.route('/register')
       res.json({ success: true });
       return
     } catch (error) {
-      console.log('Error on register user',error);
+      console.log('Error on register user', error);
     }
     res.statusCode = 200
     res.json({ success: false });
   })
-
 
 // Takes email, returns success if email was found.
 router.route('/forgot')
@@ -103,12 +100,12 @@ router.route('/forgot')
         return
       }
 
-      console.log('User remainded', email);
+      console.log('User reminded', email);
       res.statusCode = 200
       res.json({ success: true });
-      return  
+      return
     } catch (error) {
-      console.log('Error on forgot user',error);
+      console.log('Error on forgot user', error);
     }
     res.statusCode = 200
     res.json({ success: false });
