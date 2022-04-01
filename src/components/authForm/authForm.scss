@@ -1,5 +1,6 @@
-.login_form {
-    //background: #a3dbed;
+@import "../../sass/vars.scss";
+
+[class$="_form"] {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,23 +11,21 @@
     [id$="_form"] {
         display: flex;
         flex-direction: column;
-        //   width: auto;
-        //   height: auto;
         margin: auto;
+        width: 500px;
+        height: 300px;
     }
 
     [id$="_fieldset"] {
         display: flex;
         flex-direction: column;
-        background: #a3dbed;
+        background: $primary_bg_color;
         border: none;
         border-radius: 20px;
-        width: 500px;
-        height: 300px;
 
         [class$="_label"] {
             position: relative;
-            width: 70px;
+            width: auto;
             height: 28px;
             margin-left: 50px;
             font-family: "Roboto";
@@ -34,22 +33,22 @@
             font-weight: 700;
             font-size: 24px;
             line-height: 28px;
-            color: #ffffff;
+            color: $primary_color_label;
         }
         [class$="_field"] {
             position: relative;
             width: 400px;
             height: 36px;
             margin-left: 50px;
-            background: #ffffff;
-            border: 2px solid #000000;
+            background: $primary_bg_color_input;
+            border: 2px solid $primary_color_border;
             box-sizing: border-box;
             font-family: "Roboto";
             font-style: normal;
             font-size: 24px;
         }
         .error_message {
-            width: 208px;
+            width: auto;
             height: 19px;
             margin: 11px auto 10px auto;
             text-align: center;
@@ -59,14 +58,14 @@
             font-weight: 400;
             font-size: 16px;
             line-height: 19px;
-            color: #ff0000;
+            color: $primary_color_error;
         }
 
         .submit_button {
             width: 140px;
             height: 45px;
             margin: 10px auto auto auto;
-            background: #bbbaba;
+            background: $primary_bg_color_button;
             border-radius: 10px;
 
             font-family: "Roboto";
@@ -75,18 +74,15 @@
             font-size: 24px;
             line-height: 28px;
             text-align: center;
-            color: #ffffff;
+            color: $primary_color_button;
 
             &:disabled {
-                color: darken($color: #fff, $amount: 10);
-                background: darken($color: #bbbaba, $amount: 10);
+                color: darken($color: $primary_color_button, $amount: 10);
+                background: darken($color: $primary_bg_color_button, $amount: 10);
             }
         }
-        [class$="_button_text"] {
-            width: 70px;
-            height: 28px;
-        }
-        .bottom_form {
+
+        .bottom_section {
             display: flex;
             justify-content: space-between;
             margin: auto 50px 23px 50px;
@@ -105,7 +101,7 @@
         text-decoration-line: underline;
         &:hover {
             cursor: pointer;
-            color: blue;
+            color: $primary_color_link;
         }
     }
 }
